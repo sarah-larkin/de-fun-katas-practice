@@ -24,12 +24,15 @@ def till_add(till):
 
     for key, value in till.items(): 
         total += money[key] * value
-        print(total)
+    print(total)
 
     if total < 1: 
         total = int(total * 100 )
         return str(total) + "p"
+    
+    if total > 1: 
+        return "£" + str(total)
 
-    return "£0.0p"
+
 
 
