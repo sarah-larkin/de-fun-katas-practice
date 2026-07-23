@@ -99,21 +99,39 @@ class TestToEnglishOutput:
         assert result == "Hello."
 
     def test_converts_two_words_from_upper_camel_case(self): 
-            test_phrase = "ThisSentence"
-            result = camel_to_english(test_phrase)
-            assert result == "This sentence."
+        test_phrase = "ThisSentence"
+        result = camel_to_english(test_phrase)
+        assert result == "This sentence."
 
     def test_converts_two_words_from_lower_camel_case(self): 
-            test_phrase = "thisSentence"
-            result = camel_to_english(test_phrase)
-            assert result == "This sentence."
+        test_phrase = "thisSentence"
+        result = camel_to_english(test_phrase)
+        assert result == "This sentence."
 
     def test_converts_phrase_from_lower_camel_case(self): 
-            test_phrase = "thisBiggerStrangeSentence"
-            result = camel_to_english(test_phrase)
-            assert result == "This bigger strange sentence."
+        test_phrase = "thisBiggerStrangeSentence"
+        result = camel_to_english(test_phrase)
+        assert result == "This bigger strange sentence."
 
     def test_converts_phrase_from_upper_camel_case(self): 
-            test_phrase = "ThisBiggerStrangeSentence"
-            result = camel_to_english(test_phrase)
-            assert result == "This bigger strange sentence."
+        test_phrase = "ThisBiggerStrangeSentence"
+        result = camel_to_english(test_phrase)
+        assert result == "This bigger strange sentence."
+
+    def test_still_functions_when_already_english_phrase(self): 
+        test_phrase = "this bigger strange sentence"
+        result = camel_to_english(test_phrase)
+        assert result == "This bigger strange sentence."
+
+    def test_full_stop_not_duplicated(self): 
+        test_phrase = "this bigger strange sentence."
+        result = camel_to_english(test_phrase)
+        assert result == "This bigger strange sentence."
+
+"""
+possible edge cases: 
+- Acronyms eg. parseJSONFile / HTMLParser 
+- numbers eg. version2Version3 
+
+
+"""

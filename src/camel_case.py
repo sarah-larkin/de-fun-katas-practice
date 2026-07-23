@@ -102,21 +102,28 @@ def camel_to_english(phrase: str):
     if not phrase: 
         raise ValueError("phrase cannot be empty")
 
-  
-    output_sentence = phrase[0]   
+    if phrase[-1] == ".": 
+        phrase = phrase.strip(".") 
+
+    result = [phrase[0]]  #list
 
     for letter in phrase[1:]: 
         if letter.isupper():
-            output_sentence += " " + letter
-        else:
-            output_sentence += letter
+            result.append(" ")    #can use append with list 
+        result.append(letter)     #append every letter 
 
-    return output_sentence.capitalize() + "."
+    return "".join(result).capitalize() + "."   #join list into str 
 
 
 """ 
 capitalize() will capitalize the first letter in a phrase AND make all other characters
 lower case. 
+
+Strings are immutable
+Concatinating the string in the loop creates a new stirng every iteration
+Using a list can be more efficient 
+
+string.strip(characters) -- will remove leading/trailing whitespace OR specified character
 
 """
 
