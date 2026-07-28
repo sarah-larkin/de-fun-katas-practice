@@ -13,17 +13,23 @@ def fold_string(phrase):
 
     """
 
-    mid_indx = len(phrase) // 2
+    split_phrase = phrase.split() 
+    output = []
 
-    left = phrase[:mid_indx][::-1]      #reversed with slicing 
-    middle = ""
-    right = phrase[mid_indx:][::-1]
+    for word in split_phrase: 
+        mid_index = len(word) // 2
 
-    if len(phrase) % 2:                 #if len(phrase) is odd number
-        middle = phrase[mid_indx]
-        right = phrase[mid_indx + 1:][::-1]
+        left = word[:mid_index][::-1]      #reversed with slicing 
+        middle = ""
+        right = word[mid_index:][::-1]
 
-    return left + middle + right
+        if len(word) % 2:                 #if len(word) is odd number
+            middle = word[mid_index]
+            right = word[mid_index + 1:][::-1]
+
+        output.append(left + middle + right)
+
+    return " ".join(output)
 
 
 
