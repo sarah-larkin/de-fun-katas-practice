@@ -9,60 +9,28 @@ def pig_latin(phrase):
         phrase (str): english phrase 
     """
     #edge cases
-    if not phrase: 
-        raise ValueError("full phrase needed ")
-
     if not isinstance(phrase, str): 
         raise TypeError("phrase must be a string")
     
+    if not phrase: 
+        raise ValueError("full phrase needed ")
     
     #code: 
-
-    vowels = ['a', 'e', 'i', 'o', 'u']
+    vowels = {'a', 'e', 'i', 'o', 'u'} # set
     split_phrase = phrase.split()
     output = []
 
+    # find the index of first vowel (don't have to create the temp prefix)
     for word in split_phrase: 
-        prefix = ""
-        if word[0] in vowels: 
+        if word[0].lower() in vowels: #use .lower to account for capitals 
             pig_word = word + 'way'
-            output.append(pig_word)
         else: 
-            for letter in word: 
-                if letter not in vowels: 
-                    prefix += letter
-                else: 
+            for i, letter in enumerate(word): #loop to find index of first vowel 
+                if letter.lower() in vowels: 
+                    pig_word = word[i:] + word[:i] + "ay"
                     break
-                pig_word = word[len(prefix):] + prefix + 'ay'
-                print(pig_word)
-            output.append(pig_word)
-
-    result = " ".join(output) 
-    return result
-
-
-    #first attempt
-       
-    # for word in split_phrase: 
-    #     if word[0] not in vowels and word[1] not in vowels: 
-    #         pig_word = word[2:] + word[:2] + 'ay'
-    #         output.append(pig_word)
-    #     elif word[0] not in vowels and word[1] in vowels: 
-    #         pig_word = word[1:] + word[0] + 'ay'
-    #         output.append(pig_word)
-    #     else: 
-    #         pig_word = word + 'way'
-    #         output.append(pig_word)
-
-
-   
-
-
-
-
-
-pig_latin("northcoders")
-pig_latin("sheffield")
-pig_latin("algorithm")
-pig_latin("three")
-pig_latin("keep on coding")
+            else:   #if no vowels (in for loop, not if/else statement so not created for every consonant found)
+                pig_word = word[-1] + word[:-1] + "ay"
+        output.append(pig_word)
+    return " ".join(output)
+    

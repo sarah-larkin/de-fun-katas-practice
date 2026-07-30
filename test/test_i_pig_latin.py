@@ -16,17 +16,22 @@ class TestForm:
 
 class TestOutput: 
     def test_one_consonant_word(self): 
-        test_phrase = "northcoders"
-        assert pig_latin(test_phrase) == "orthcodersnay"
+        assert pig_latin("northcoders") == "orthcodersnay"
     def test_double_consonant_word(self): 
-        test_phrase = "sheffield"
-        assert pig_latin(test_phrase) == "effieldshay"
+        assert pig_latin("sheffield") == "effieldshay"
     def test_triple_consonant_word(self): 
-        test_phrase = "three"
-        assert pig_latin(test_phrase) == "eethray"
+        assert pig_latin("three") == "eethray"
     def test_vowel_word(self): 
-        test_phrase = "algorithm"
-        assert pig_latin(test_phrase) == "algorithmway"
+        assert pig_latin("algorithm") == "algorithmway"
     def test_multi_word_phrase(self): 
         test_phrase = "keep on coding"
         assert pig_latin(test_phrase) == "eepkay onway odingcay"
+    def test_capital_consonant_word(self): 
+        assert pig_latin("Northcoders") == "orthcodersNay"
+    def test_capital_vowel_word(self): 
+        assert pig_latin("Apple") == "Appleway"
+    def test_no_vowels(self):
+        assert pig_latin("rhythm") == "mrhythay"
+        assert pig_latin("sky") == "yskay"
+    def test_single_letter(self):
+        assert pig_latin("a") == "away"
