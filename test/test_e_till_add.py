@@ -1,4 +1,4 @@
-from src.till_add import till_add
+from src.e_till_add import till_add
 
 def test_returns_string(): 
     result = till_add({ "1p": 1, "2p": 1 })

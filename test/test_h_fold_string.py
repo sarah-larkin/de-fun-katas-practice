@@ -1,4 +1,4 @@
-from src.fold_string import fold_string
+from src.h_fold_string import fold_string
 
 class TestFoldStringForm:
     def test_empty_string(self): 

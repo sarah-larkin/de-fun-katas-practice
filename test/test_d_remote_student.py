@@ -1,4 +1,4 @@
-from src.remote_student import update_remote_students
+from src.d_remote_student import update_remote_students
 
 class TestPurity:
     def test_returns_new_list_and_reference(self): 

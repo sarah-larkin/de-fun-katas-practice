@@ -1,4 +1,4 @@
-from src.calc_div_2 import calc_div
+from src.c_calc_div_2 import calc_div
 import pytest
 
 #The challenge is to implement a function which adds all the 

@@ -1,4 +1,4 @@
-from src.tweet_2 import tweet_data
+from src.b_tweet_2 import tweet_data
 
 def test_empty_str_returns_basic_dict(): 
     assert tweet_data("") == { 

@@ -1,4 +1,4 @@
-from src.dna_2 import dna_pairs
+from src.a_dna_2 import dna_pairs
 
 
 def test_empty_str_returns_empty_list(): 

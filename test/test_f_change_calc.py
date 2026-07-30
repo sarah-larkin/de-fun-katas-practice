@@ -1,4 +1,4 @@
-from src.change_calc import change_calculator
+from src.f_change_calc import change_calculator
 import pytest
 
 class TestStructure:

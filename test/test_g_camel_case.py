@@ -1,4 +1,4 @@
-from src.camel_case import to_camel_case, camel_to_english
+from src.g_camel_case import to_camel_case, camel_to_english
 import pytest
 
 class TestToCamelForm: 
